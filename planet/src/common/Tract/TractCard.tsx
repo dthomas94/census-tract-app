@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
 
 type TractCardProps = {
   data: Tract;
@@ -24,7 +25,9 @@ export const TractCard = ({ data }: TractCardProps) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Link to={`/tracts/${data.fid}`}>View Tract Page</Link>
+          <Button component={Link} to={`/tracts/${data.fid}`}>
+            View Tract Page
+          </Button>
         </CardActions>
       </Card>
     </>
