@@ -44,6 +44,4 @@ def get_tract(pk):
     for row in CursorByName(res):
         result = row
 
-        print(result)
-
     return result
