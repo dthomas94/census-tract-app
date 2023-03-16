@@ -1,18 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getTracts } from "./api/tracts";
+import { Tract } from "./common/Tract/Tract";
+import { Tract as TractType } from "./types/Tract";
 
 function App() {
+  const [tracts, setTracts] = useState<TractType[]>();
+
   useEffect(() => {
     const asyncGetTracts = async () => {
       const tracts = await getTracts();
-      console.log(tracts);
+      setTracts(tracts);
     };
     asyncGetTracts();
   }, []);
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <div className="tracts">
+        {tracts?.map((tract) => (
+          <Tract key={tract.fid} data={tract} />
+        ))}
+      </div>
     </div>
   );
 }
