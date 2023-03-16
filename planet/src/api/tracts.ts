@@ -18,7 +18,7 @@ export const getTract = async (id: string) => {
     .get<Tract | undefined>(
       `${process.env.REACT_APP_BASE_API_URL}/tracts/${id}`
     )
-    .then((res) => res)
+    .then((res) => res.data)
     .catch((err) => {
       console.error(err.message);
       return;

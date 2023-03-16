@@ -1,10 +1,11 @@
+import { Box, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getTracts } from "./api/tracts";
-import { Tract } from "./common/Tract/Tract";
-import { Tract as TractType } from "./types/Tract";
+import { TractCard } from "./common/Tract/TractCard";
+import { Tract } from "./types/Tract";
 
 function App() {
-  const [tracts, setTracts] = useState<TractType[]>();
+  const [tracts, setTracts] = useState<Tract[]>([]);
 
   useEffect(() => {
     const asyncGetTracts = async () => {
@@ -15,13 +16,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="tracts">
-        {tracts?.map((tract) => (
-          <Tract key={tract.fid} data={tract} />
-        ))}
-      </div>
-    </div>
+    <Grid container rowGap={5} justifyContent="space-between" columnGap={1}>
+      {tracts?.map((tract) => (
+        <Grid key={tract.fid} item className="tracts" xs>
+          <TractCard key={tract.fid} data={tract} />
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 
