@@ -1,10 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getTract } from "../../api/tracts";
 import { Tract } from "../../types/Tract";
 
 export const TractPage = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [tract, setTract] = useState<Tract | undefined>(undefined);
 
@@ -21,6 +24,9 @@ export const TractPage = () => {
   return (
     <>
       <Box>
+        <Box>
+          <Button onClick={() => navigate(-1)}>Back</Button>
+        </Box>
         <Typography variant="h5" display="inline-block">
           {tract?.NAMELSAD} <span> {`(geoid: ${tract?.GEOID})`}</span>
         </Typography>
