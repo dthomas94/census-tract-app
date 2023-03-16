@@ -17,9 +17,6 @@ export const TractCard = ({ data }: TractCardProps) => {
             {data.NAMELSAD}
           </Typography>
           <Typography variant="h5" component="div"></Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            adjective
-          </Typography>
           <Typography variant="body2">LAT: {data.INTPTLAT}</Typography>
           <Typography variant="body2">LON: {data.INTPTLON}</Typography>
         </CardContent>
