@@ -8,13 +8,9 @@ This app allows the user to get census tract data from a sqlite db. Users can al
 
 ## Running the App
 
-<br/>
-
 ### API
 
 Navigate to the api folder and run the init.sh executable. This will start the server
-
-<br/>
 
 ### UI
 
