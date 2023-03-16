@@ -12,7 +12,7 @@ type TractCardProps = {
 export const TractCard = ({ data }: TractCardProps) => {
   return (
     <>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275 }} data-testid="tract-card">
         <CardContent>
           <Typography variant="h5" gutterBottom>
             {data.NAMELSAD}
