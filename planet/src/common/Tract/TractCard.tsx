@@ -25,7 +25,7 @@ export const TractCard = ({ data }: TractCardProps) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button component={Link} to={`/tracts/${data.fid}`}>
+          <Button component={"a"} href={`/tracts/${data.fid}`}>
             View Tract Page
           </Button>
         </CardActions>
