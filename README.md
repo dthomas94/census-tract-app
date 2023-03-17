@@ -24,6 +24,4 @@ Navigate to the "planet" folder and run `yarn start`. This will run the dev serv
 
 ## Future Work
 
-1. Implement pagination of tracts on home page
-
-2. Add chart for displaying geometry data
+1. Add chart for displaying geometry data
