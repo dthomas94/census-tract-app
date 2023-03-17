@@ -22,11 +22,6 @@ Navigate to the "planet" folder and run `yarn start`. This will run the dev serv
 
    `raise TypeError(f'Object of type {o.__class__.__name__} ' TypeError: Object of type bytes is not JSON serializable"`
 
-2. FE tests throw an error due to an issue with React Router context
-
-   `console.error
-Error: Uncaught [TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.]`
-
 ## Future Work
 
 1. Implement lazy loading of tracts on home page
