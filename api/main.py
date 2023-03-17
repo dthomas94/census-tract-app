@@ -31,6 +31,8 @@ def list_tracts():
     result = []
     for row in CursorByName(res):
         result.append(row)
+    
+    
 
     return {
         "tracts": result ,
@@ -39,9 +41,11 @@ def list_tracts():
 
 @app.route("/tracts/<int:pk>")
 def get_tract(pk):
-    res = cur.execute("SELECT fid,GEOID,NAMELSAD,COUNTYFP,STATEFP,INTPTLAT,INTPTLON,ALAND,AWATER FROM tracts WHERE fid=?", (pk,))
+    res = cur.execute("SELECT * FROM tracts WHERE fid=?", (pk,))
     result = None
     for row in CursorByName(res):
+        print(row)
+        row['geom'] = row['geom'].decode('latin1')
         result = row
 
     return result
