@@ -25,4 +25,10 @@ Navigate to the "planet" folder and run `yarn start`. This will run the dev serv
 2. FE tests throw an error due to an issue with React Router context
 
    `console.error
- Error: Uncaught [TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.]`
+Error: Uncaught [TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.]`
+
+## Future Work
+
+1. Implement lazy loading of tracts on home page
+
+2. Add chart for displaying geometry data
