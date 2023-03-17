@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import { getTracts } from "./api/tracts";
-import { TractCard } from "./common/Tract/TractCard";
 import { Tract } from "./types/Tract";
+import { Pagination } from "./common/Pagination/Pagination";
+import "./App.css";
 
 function App() {
   const [tracts, setTracts] = useState<Tract[]>([]);
@@ -17,11 +18,7 @@ function App() {
 
   return (
     <Grid container rowGap={5} justifyContent="space-between" columnGap={1}>
-      {tracts?.map((tract) => (
-        <Grid key={tract.fid} item className="tracts" xs>
-          <TractCard key={tract.fid} data={tract} />
-        </Grid>
-      ))}
+      <Pagination items={tracts} />
     </Grid>
   );
 }
