@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 import sqlite3
+from google import decode
 
 
 app = Flask(__name__)
@@ -44,8 +45,7 @@ def get_tract(pk):
     res = cur.execute("SELECT * FROM tracts WHERE fid=?", (pk,))
     result = None
     for row in CursorByName(res):
-        print(row)
-        row['geom'] = row['geom'].decode('latin1')
+        row['geom'] = decode(row['geom'].decode('latin1'))
         result = row
 
     return result
