@@ -1,5 +1,5 @@
-import { Box, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
+import Grid from "@mui/material/Grid";
 import { getTracts } from "./api/tracts";
 import { TractCard } from "./common/Tract/TractCard";
 import { Tract } from "./types/Tract";
