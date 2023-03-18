@@ -1,34 +1,31 @@
 import { Tract } from "../../types/Tract";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
+import { StyledCard } from "./TractCard.styled";
+import { useNavigate } from "react-router-dom";
 
 type TractCardProps = {
   data: Tract;
 };
 export const TractCard = ({ data }: TractCardProps) => {
+  const navigate = useNavigate();
   return (
-    <>
-      <Card sx={{ minWidth: 275 }} data-testid="tract-card">
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            {data.NAMELSAD}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            LAT: {data.INTPTLAT}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            LON: {data.INTPTLON}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button component={"a"} href={`/tracts/${data.fid}`}>
-            View Tract Page
-          </Button>
-        </CardActions>
-      </Card>
-    </>
+    <StyledCard
+      sx={{ minWidth: 275 }}
+      data-testid="tract-card"
+      onClick={() => navigate(`/tracts/${data.fid}`)}
+    >
+      <CardContent>
+        <Typography variant="h5" gutterBottom className="card-heading">
+          {data.NAMELSAD}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          LAT: {data.INTPTLAT}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          LON: {data.INTPTLON}
+        </Typography>
+      </CardContent>
+    </StyledCard>
   );
 };
