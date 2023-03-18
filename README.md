@@ -20,4 +20,5 @@ Navigate to the "planet" folder and run `yarn start`. This will run the dev serv
 
 ## Future Work 🚀
 
-1. Add chart for displaying geometry data
+1. Add visulization for displaying geometry data
+2. Improve backend performance (remove mapping data entries to get column names)
