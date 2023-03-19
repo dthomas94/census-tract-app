@@ -12,7 +12,9 @@ Navigate to the api folder and run the init.sh executable. This will start the s
 
 ### UI 💅🏿
 
-Navigate to the "planet" folder and run `yarn start`. This will run the dev server for the frontend
+1. To be able to view map data, you will need to add your API_KEY for Google Maps to the .env.local file
+
+2. Navigate to the "planet" folder and run `yarn start`. This will run the dev server for the frontend
 
 ## Future Work 🚀
 
