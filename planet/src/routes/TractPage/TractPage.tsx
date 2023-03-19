@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getTract } from "../../api/tracts";
+import { Map } from "../../common/Map/Map";
 import { Tract } from "../../types/Tract";
 
 export const TractPage = () => {
@@ -24,6 +25,22 @@ export const TractPage = () => {
   return (
     <>
       <Box>
+        <Box height="100px" width="200px">
+          {!!tract && (
+            <Map
+              center={{
+                lat: Number(tract.INTPTLAT),
+                lng: Number(tract.INTPTLON),
+              }}
+              markers={[
+                {
+                  lat: Number(tract.INTPTLAT),
+                  lng: Number(tract.INTPTLON),
+                },
+              ]}
+            />
+          )}
+        </Box>
         <Box>
           <Button onClick={() => navigate(-1)}>Back</Button>
         </Box>

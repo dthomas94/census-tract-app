@@ -16,7 +16,7 @@ Navigate to the "planet" folder and run `yarn start`. This will run the dev serv
 
 ## Known Issues 🔔
 
-1. Non-descriptive error is thrown when using the Map component. An error occurs inside of an element used inside the google-map-react package
+1. API key is not being sent to google maps
 
 ## Future Work 🚀
 
