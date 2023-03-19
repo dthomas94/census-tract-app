@@ -10,25 +10,23 @@ type MapProps = {
 
 export const Map = ({ center, zoomLevel = 5, markers }: MapProps) => {
   return (
-    <div className="google-map">
-      <GoogleMapReact
-        bootstrapURLKeys={{
-          key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string,
-        }}
-        defaultCenter={center}
-        defaultZoom={zoomLevel}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => {
-          new maps.Marker({
-            position: {
-              lat: markers[0].lat,
-              lng: markers[0].lng,
-              text: "hello",
-            },
-            map: map,
-          });
-        }}
-      />
-    </div>
+    <GoogleMapReact
+      bootstrapURLKeys={{
+        key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string,
+      }}
+      defaultCenter={center}
+      defaultZoom={zoomLevel}
+      yesIWantToUseGoogleMapApiInternals
+      onGoogleApiLoaded={({ map, maps }) => {
+        new maps.Marker({
+          position: {
+            lat: markers[0].lat,
+            lng: markers[0].lng,
+            text: "hello",
+          },
+          map: map,
+        });
+      }}
+    />
   );
 };
