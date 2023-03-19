@@ -14,7 +14,6 @@ export const Map = ({ center, zoomLevel = 5, markers }: MapProps) => {
       <GoogleMapReact
         bootstrapURLKeys={{
           key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string,
-          libraries: ["places", "geometry", "visualization"],
         }}
         defaultCenter={center}
         defaultZoom={zoomLevel}
