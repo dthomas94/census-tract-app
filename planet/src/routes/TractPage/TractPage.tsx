@@ -25,7 +25,7 @@ export const TractPage = () => {
   return (
     <>
       <Box>
-        <Box height="100px" width="200px">
+        <Box height="300px" width="300px">
           {!!tract && (
             <Map
               center={{

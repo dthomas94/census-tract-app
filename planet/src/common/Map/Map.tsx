@@ -1,6 +1,4 @@
-import React from "react";
 import GoogleMapReact, { Coords } from "google-map-react";
-import { Marker } from "./Marker";
 
 type MapProps = {
   center: Coords;
@@ -18,13 +16,14 @@ export const Map = ({ center, zoomLevel = 5, markers }: MapProps) => {
       defaultZoom={zoomLevel}
       yesIWantToUseGoogleMapApiInternals
       onGoogleApiLoaded={({ map, maps }) => {
-        new maps.Marker({
-          position: {
-            lat: markers[0].lat,
-            lng: markers[0].lng,
-            text: "hello",
-          },
-          map: map,
+        markers.forEach(({ lat, lng }) => {
+          new maps.Marker({
+            position: {
+              lat: lat,
+              lng: lng,
+            },
+            map: map,
+          });
         });
       }}
     />

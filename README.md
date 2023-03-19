@@ -14,10 +14,6 @@ Navigate to the api folder and run the init.sh executable. This will start the s
 
 Navigate to the "planet" folder and run `yarn start`. This will run the dev server for the frontend
 
-## Known Issues 🔔
-
-1. API key is not being sent to google maps
-
 ## Future Work 🚀
 
 1. Add visulization for displaying geometry data
