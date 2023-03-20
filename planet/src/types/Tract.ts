@@ -1,6 +1,6 @@
 export type Tract = {
   fid: number;
-  geom: number;
+  geom: number[][];
   STATEFP: string;
   COUNTYFP: string;
   TRACTCE: string;
