@@ -1,6 +1,11 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getTract } from "../../api/tracts";
@@ -11,6 +16,18 @@ export const TractPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [tract, setTract] = useState<Tract | undefined>(undefined);
+  const rowVals: any[] = [];
+  const columns = [] as string[];
+
+  if (tract) {
+    Object.entries(tract).forEach(([key, val]) => {
+      if (key !== "geom" && key !== "fid") {
+        columns.push(key);
+
+        rowVals.push(val);
+      }
+    });
+  }
 
   useEffect(() => {
     const asyncGetTract = async () => {
@@ -25,53 +42,49 @@ export const TractPage = () => {
   return (
     <>
       <Box>
-        <Box height="300px" width="300px">
-          {!!tract && (
-            <Map
-              center={{
+        <Button onClick={() => navigate(-1)}>Back</Button>
+      </Box>
+      <Box height="300px" width="300px">
+        {!!tract && (
+          <Map
+            center={{
+              lat: Number(tract.INTPTLAT),
+              lng: Number(tract.INTPTLON),
+            }}
+            markers={[
+              {
                 lat: Number(tract.INTPTLAT),
                 lng: Number(tract.INTPTLON),
-              }}
-              markers={[
-                {
-                  lat: Number(tract.INTPTLAT),
-                  lng: Number(tract.INTPTLON),
-                },
-              ]}
-            />
-          )}
-        </Box>
-        <Box>
-          <Button onClick={() => navigate(-1)}>Back</Button>
-        </Box>
-        <Typography variant="h5" display="inline-block">
-          {tract?.NAMELSAD} <span> {`(geoid: ${tract?.GEOID})`}</span>
-        </Typography>
-        <Box>
-          <Typography display="inline-block" width="150px">
-            LAT: {tract?.INTPTLAT}
-          </Typography>
-          <Typography display="inline-block" width="150px">
-            LON: {tract?.INTPTLON}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography display="inline-block" width="150px">
-            ALAND: {tract?.ALAND}
-          </Typography>
-          <Typography display="inline-block" width="150px">
-            AWATER: {tract?.AWATER}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography display="inline-block" width="150px">
-            STATEFP: {tract?.STATEFP}
-          </Typography>
-          <Typography display="inline-block" width="150px">
-            COUNTYFP: {tract?.COUNTYFP}
-          </Typography>
-        </Box>
+              },
+            ]}
+          />
+        )}
       </Box>
+      <TableContainer>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              {columns?.map((column) => (
+                <TableCell key={column} align="right">
+                  {column}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow
+              key={tract?.fid}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              {rowVals.map((rowVal, index) => (
+                <TableCell key={index} align="right">
+                  {rowVal}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 };
