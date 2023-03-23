@@ -2,6 +2,10 @@ import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 
 export const StyledReactPaginate = styled(ReactPaginate)`
+  padding: 0;
+  height: 35px;
+  width: 100%;
+
   .pagination-item,
   .next,
   .previous,

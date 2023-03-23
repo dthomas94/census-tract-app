@@ -17,7 +17,13 @@ function App() {
   }, []);
 
   return (
-    <Grid container rowGap={5} justifyContent="space-between" columnGap={1}>
+    <Grid
+      container
+      className="app-container"
+      rowGap={5}
+      justifyContent="space-between"
+      columnGap={1}
+    >
       <Pagination items={tracts} />
     </Grid>
   );

@@ -1,3 +1,8 @@
 ul {
   list-style: none;
 }
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
