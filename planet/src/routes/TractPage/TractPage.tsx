@@ -13,7 +13,7 @@ import { Map } from "../../common/Map/Map";
 import { Tract } from "../../types/Tract";
 
 export const TractPage = () => {
-  const navigate = useNavigate();
+  const goToHome = useNavigate();
   const { id } = useParams();
   const [tract, setTract] = useState<Tract | undefined>(undefined);
   const rowVals: any[] = [];
@@ -42,7 +42,7 @@ export const TractPage = () => {
   return (
     <>
       <Box>
-        <Button onClick={() => navigate(-1)}>Back</Button>
+        <Button onClick={() => goToHome("/")}>Back</Button>
       </Box>
       <Box height="300px" width="300px">
         {!!tract && (
