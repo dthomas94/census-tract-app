@@ -35,5 +35,10 @@ export const StyledReactPaginate = styled(ReactPaginate)`
       background-color: #0d6efd;
       border-color: #0d6efd;
     }
+
+    &.disabled {
+      pointer-events: none;
+      background-color: #b8a8a821;
+    }
   }
 `;

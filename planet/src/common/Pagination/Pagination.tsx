@@ -29,10 +29,11 @@ export const Pagination = ({ items, itemsPerPage = 20 }: PaginationProps) => {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
+  const [disabledNavButtons, setDisabledNavButtons] = useState({
+    prev: false,
+    next: false,
+  });
 
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
@@ -41,10 +42,17 @@ export const Pagination = ({ items, itemsPerPage = 20 }: PaginationProps) => {
   // Invoke when user click to request another page.
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
+
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
     setItemOffset(newOffset);
+    console.log(event.selected, pageCount);
+    if (event.selected === pageCount - 1) {
+      setDisabledNavButtons({ prev: false, next: true });
+    } else if (event.selected === 1) {
+      setDisabledNavButtons({ prev: true, next: false });
+    }
   };
 
   return (
@@ -54,7 +62,9 @@ export const Pagination = ({ items, itemsPerPage = 20 }: PaginationProps) => {
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}
-        className="pagination-container"
+        className={`pagination-container ${
+          disabledNavButtons.next && "disabled"
+        }`}
         pageLinkClassName="pagination-link"
         pageClassName="pagination-item"
         pageRangeDisplayed={5}
