@@ -30,7 +30,7 @@ function App() {
       columnGap={1}
     >
       <Typography variant="h1" textAlign="center" width="100%">
-        Welcome to Planet 🌍
+        Welcome to Census Tract 🌍
       </Typography>
       {isLoading ? (
         <CircularProgress

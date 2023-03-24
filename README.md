@@ -1,4 +1,4 @@
-# Planet App 🌍
+# Census Tract App 🌍
 
 This app allows the user to get census tract data from a sqlite db. Users can also find more info about a tract by viewing its individual page.
 
@@ -8,13 +8,13 @@ This app allows the user to get census tract data from a sqlite db. Users can al
 
 ### API 🔧
 
-Navigate to the api folder and run the init.sh executable. This will start the server
+Navigate to the api folder and run `./init.sh` executable. This will start the backend server
 
 ### UI 💅🏿
 
 1. To be able to view map data, you will need to add your API_KEY for Google Maps to the .env.local file
 
-2. Navigate to the "planet" folder and run `yarn start`. This will run the dev server for the frontend
+2. Navigate to the "app" folder and run `yarn` then `yarn start`. This will install dependencies and run the dev server for the frontend
 
 ## Future Work 🚀
 

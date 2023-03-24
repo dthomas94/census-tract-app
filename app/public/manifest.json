@@ -1,6 +1,6 @@
 {
-  "short_name": "Planet App",
-  "name": "Planet",
+  "short_name": "Census Tract App",
+  "name": "Census Tract",
   "icons": [
     {
       "src": "favicon.ico",
