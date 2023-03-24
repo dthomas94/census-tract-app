@@ -6,3 +6,11 @@ ul {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.loader-icon {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+}
