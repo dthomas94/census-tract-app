@@ -5,6 +5,7 @@ import { Tract } from "./types/Tract";
 import { Pagination } from "./common/Pagination/Pagination";
 import "./App.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
 
 function App() {
   const [tracts, setTracts] = useState<Tract[]>([]);
@@ -28,6 +29,9 @@ function App() {
       justifyContent="space-between"
       columnGap={1}
     >
+      <Typography variant="h1" textAlign="center" width="100%">
+        Welcome to Planet 🌍
+      </Typography>
       {isLoading ? (
         <CircularProgress
           className="loader-icon"

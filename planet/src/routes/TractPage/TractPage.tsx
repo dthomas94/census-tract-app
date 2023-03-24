@@ -44,7 +44,7 @@ export const TractPage = () => {
       <Box>
         <Button onClick={() => goToHome("/")}>Back</Button>
       </Box>
-      <Box height="300px" width="300px">
+      <Box height="300px" width="100%">
         {!!tract && (
           <Map
             center={{
